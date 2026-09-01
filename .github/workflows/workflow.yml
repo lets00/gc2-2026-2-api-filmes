@@ -1,0 +1,24 @@
+name: worflow-api-filmes
+run-name: Executando o fluxo 1 (workflow padrão)
+on: [push]
+jobs:
+  instala-deps-e-testa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar o repositório e realizar checkout
+        uses: actions/checkout@v4
+      
+      - name: Instalar o NodeJS
+        uses: actions/setup-node@v7
+      
+      - name: Instalar as dependências de execução
+        run: npm i
+      
+      - name: Instalar as dependências de desenvolvimento
+        run: npm install -D
+      
+      - name: Executar os testes
+        run: npm run test
+
+      - name: Executar os testes de cobertura
+        run: npm run test:coverage
