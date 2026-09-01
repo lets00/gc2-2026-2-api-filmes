@@ -19,3 +19,6 @@ jobs:
       
       - name: Executar os testes
         run: npm run test
+
+      - name: Executar os testes de cobertura
+        run: npm run test:coverage
